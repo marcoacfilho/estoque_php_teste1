@@ -32,13 +32,18 @@
 				<form action="<?php $_SERVER['PHP_SELF']?>" method="post">
 					<fieldset>
 						<legend class="titulo">Cadastro de Produto &darr; </legend>
-						<label>Nome</label>
-						<input type="text" name="produto" /><br />
-						<label>Descrição</label>
-						<input type="text" name="desc" /><br />
+						<div class="col-md-12">
+							<label>Nome</label>
+							<input type="text" name="produto" /><br />
+					    </div>
+					    <div class="col-md-12">
+							<label>Descrição</label>
+							<input type="text" name="desc" /><br />
+						</div>
+						<div class="col-md-12">
 						<label>Preço</label>
 						<input type="text" name="preco" /><br />
-						
+						</div>
 						<input class="botao" type="submit" name="enviar" value="Cadastrar" />
 					</fieldset>				
 				</form>

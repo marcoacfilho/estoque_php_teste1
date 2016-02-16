@@ -1,7 +1,7 @@
 	<div id="tudo">
 		<div id="conteudo">
 			<div id="topo">
-				<h1>. . : : <i>Controle de Estoque </i> : : . .</h1><h3>por Marco Carvalho</h3>
+				<h1>. . : : <i>Controle de Estoque </i> : : . .</h1><h4>por Marco Carvalho</h4>
 				<p id="emitido"><?php echo "Emitido em: ".date("d-m-Y").""; ?></p>
 			</div>
             <div id="menu">

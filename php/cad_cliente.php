@@ -37,13 +37,19 @@
 				<form action="<?php $_SERVER['PHP_SELF']?>" method="post">
 					<fieldset>
 						<legend class="titulo">Cadastro de Clientes &darr; </legend>
-						<label>Nome</label>
-						<input type="text" name="nome" maxlength="45"  onfocus="this.style.backgroundColor='#fff';" onblur="this.style.backgroundColor='#EEE';"/><br />
-						<label>Telefone</label>
-						<input type="text" name="fone" maxlength="11" /> <br />
-						<label>Email</label>
-						<input type="text" name="email"  />  <br />
-						<input class="botao" type="submit" name="enviar" value="Cadastrar" /> 
+						<div class="col-md-12">
+							<label>Nome</label>
+							<input type="text" name="nome" maxlength="45"  onfocus="this.style.backgroundColor='#fff';" onblur="this.style.backgroundColor='#EEE';"/><br />
+						</div>
+						<div class="col-md-12">	
+							<label>Telefone</label>
+							<input type="text" name="fone" maxlength="11" /> <br />
+						</div>	
+						<div class="col-md-12">	
+							<label>Email</label>
+							<input type="text" name="email"  />  <br />
+						</div>
+							<input class="botao" type="submit" name="enviar" value="Cadastrar" /> 
 					</fieldset>				
 				</form>
 			</div> <!-- Fim da div#principal -->

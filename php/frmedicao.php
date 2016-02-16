@@ -40,12 +40,19 @@
 				<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>" >
 					<fieldset>
 						<legend class="titulo">Editar Produto</legend>
-						<label>Nome</label>						
-						<input type="text" name="nome" value="<?php echo $query['NOME']; ?>" /><br />
-						<label>Preço</label>						
-						<input type="text" name="preco" value="<?php echo $query['PRECO'];?>"  /> <br />
-						<label>Descrição</label>
-						<input type="text" name="descr" value="<?php echo $query['DESCR']; ?>" /><br />						
+						<div class="col-md-12">
+							<label>Nome</label>						
+							<input type="text" name="nome" value="<?php echo $query['NOME']; ?>" /><br />
+						</div>
+						<div class="col-md-12">
+							<label>Preço</label>						
+							<input type="text" name="preco" value="<?php echo $query['PRECO'];?>"  /> <br />
+						</div>
+						<div class="col-md-12">
+							<label>Descrição</label>
+							<input type="text" name="descr" value="<?php echo $query['DESCR']; ?>" /><br />	
+						</div>
+
 						<br />
 						
 						<input class="botao" type="submit" name="alterar" value="Editar" />
@@ -74,19 +81,77 @@
 							<form action="#" method="post">
 								<fieldset>
 									<legend class="titulo">Editar Clientes </legend>
-									<label>Nome</label>
-									<input type="text" name="nome" value="<?php echo $result['NOME']; ?>" /><br />
-									<label>Telefone</label>
-									<input type="text" name="fone" value="<?php echo $result['FONE']; ?>" /><br />
-									<label>Email</label>
-									<input type="text" name="email" value="<?php echo $result['EMAIL']; ?>" /><br />
+									<div class="col-md-12">
+										<label>Nome</label>
+										<input type="text" name="nome" value="<?php echo $result['NOME']; ?>" /><br />
+									</div>
+									<div class="col-md-12">
+										<label>Telefone</label>
+										<input type="text" name="fone" value="<?php echo $result['FONE']; ?>" /><br />
+									</div>
+									<div class="col-md-12">
+										<label>Email</label>
+										<input type="text" name="email" value="<?php echo $result['EMAIL']; ?>" /><br />
+									</div>
 									<input class="botao" type="submit" name="alterar" value="Editar"/>
-				
+									<a class="botao" href="produtos.php">Voltar</a>	
 							
 				
 							
 				<?php 
 						}//fim da ediçao de clientes
+						
+				else 
+						if ($tabela == 'pedidos') //aqui a ediçao de pedidos
+						{
+							
+							$clientes = mysql_query("SELECT * FROM pedidos WHERE CODPEDIDO = $edita");
+							$result = mysql_fetch_array($clientes);
+							$cod_produto = $result['CODPRODUTO'];
+							$cod_cliente = $result['CODCLIENTE'];
+							$recupera1 = mysql_query("SELECT * FROM produtos WHERE CODPROD = $cod_produto") or die (mysql_error());
+							$recupera2 = mysql_query("SELECT * FROM clientes WHERE CODIGO = $cod_cliente") or die (mysql_error());
+				?>
+							<form action="#" method="post">
+								<fieldset>
+									<legend class="titulo">Editar Pedidos </legend>
+									<div class="col-md-12">
+									<label>Produto</label>
+									<select name ='produto'>
+									<?php 
+										while($sqlProdutoResultFim= mysql_fetch_assoc($recupera1))
+										{
+										?>
+										<option value="<?=$sqlProdutoResultFim["CODPROD"]?>"> 
+										<?=$sqlProdutoResultFim["NOME"]?> 
+										</option>
+										<?php
+										}
+									?>
+									</select><br />
+								</div>
+								<div class="col-md-12">
+									<label>Cliente</label>
+									<select name ='cliente'>
+									  <?php 
+										while($sqlClienteResultFim= mysql_fetch_assoc($recupera2))
+										{
+										?>
+										<option value="<?=$sqlClienteResultFim["CODIGO"]?>"> 
+										<?=$sqlClienteResultFim["NOME"]?> 
+										</option>
+										<?php
+										}
+									?>
+									</select><br />
+								</div>
+									
+									<a class="botao" href="pedidos.php">Voltar</a>	
+							
+				
+							
+				<?php 
+						}//fim da ediçao de pedidos
 						
 				?>
 				

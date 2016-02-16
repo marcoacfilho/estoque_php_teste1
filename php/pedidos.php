@@ -15,10 +15,10 @@
 			
 			<div id="principal">
 				<?php
-						$tabela = 'clientes';
-						$res_codigo = 'CODIGO';
-						$res_nome = 'NOME';				
-						include ('includes/search.php');	
+						$tabela = 'pedidos';
+						$res_codigo = 'CODPEDIDO';
+						$res_nome = 'CODCLIENTE';				
+						include ('includes/resultados.php');	
 				?>
 			</div> <!-- Fim da div#principal -->
 			
